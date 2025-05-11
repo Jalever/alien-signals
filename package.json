@@ -2,6 +2,7 @@
 	"name": "native-signals",
 	"version": "0.0.1",
 	"license": "MIT",
+	"type": "commonjs",
 	"packageManager": "pnpm@9.12.0",
 	"files": [
 		"**/*.js",
@@ -13,11 +14,16 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"test": "vitest run"
+		"test": "vitest run",
+		"debug": "ts-node -P tsconfig-ts-node.json --transpile-only debug-example.ts",
+		"debug:link": "ts-node -P tsconfig-ts-node.json --transpile-only link-debug.ts",
+		"debug:graph": "ts-node -P tsconfig-ts-node.json --transpile-only dependency-graph-debug.ts",
+		"debug:flow": "ts-node -P tsconfig-ts-node.json --transpile-only flow-tracer.ts"
 	},
 	"devDependencies": {
 		"vite": "latest",
 		"vitest": "latest",
-		"typescript": "latest"
+		"typescript": "latest",
+		"ts-node": "latest"
 	}
 }
