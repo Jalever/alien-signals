@@ -57,28 +57,28 @@ console.log('=========== 初始化阶段 ===========');
 
 // 创建信号
 const counter = debugSignal('counter', 0);
-const multiplier = debugSignal('multiplier', 2);
+// const multiplier = debugSignal('multiplier', 2);
 
 // 创建计算属性
 const doubled = debugComputed('doubled', () => counter.get() * 2);
-const complex = debugComputed('complex', () => doubled.get() * multiplier.get());
+// const complex = debugComputed('complex', () => doubled.get() * multiplier.get());
 
 // 创建副作用
 const effectA = debugEffect('counter-effect', () => {
   console.log(`Counter is: ${counter.get()}`);
 });
 
-const effectB = debugEffect('complex-effect', () => {
-  console.log(`Complex value is: ${complex.get()}`);
-});
+// const effectB = debugEffect('complex-effect', () => {
+//   console.log(`Complex value is: ${complex.get()}`);
+// });
 
 // ============ 更新阶段 ============
 console.log('\n=========== 更新阶段 ===========');
 console.log('\n--- 更新 counter ---');
 counter.set(1);
 
-console.log('\n--- 更新 multiplier ---');
-multiplier.set(3);
+// console.log('\n--- 更新 multiplier ---');
+// multiplier.set(3);
 
 console.log('\n--- 连续更新 counter ---');
 counter.set(5);
@@ -91,5 +91,5 @@ import { System } from './lib/system';
 console.log('\n--- 批处理两个更新 ---');
 System.startBatch();
 counter.set(20);
-multiplier.set(4);
+// multiplier.set(4);
 System.endBatch(); 
